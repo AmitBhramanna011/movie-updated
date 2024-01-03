@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/cssFiles/result.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+      body{
+        background-color: #001d3d;
+      }
+      h1{
+        color: whitesmoke;
+        display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+      }
+      ul{
+        color: whitesmoke;
+
+        display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+      }
+  
+      .Poster li{
+        list-style: none;
+        margin: 20px 40px ;
+      }
+      .Poster li img{
+        width: 200px;
+      }
+      .movie_name li {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 195px;
+    margin: 19px 45px;
+    font-weight: 600;
+    letter-spacing: 2px;
+      }
+      .Poster img{
+        border: 1px;
+    border-radius: 20px;
+      }
+      .movie_name{
+        margin: 2rem 0px;
+      }
+      .search-again{
+        display: flex;
+    justify-content: center;
+      }
+      .search-again a{
+        text-decoration: none;
+    border: 1px solid black;
+    border-radius: 49px;
+    color: black;
+    font-size: 25px;
+    background-color: white;
+    padding: 6px 21px;
+      }
+
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+          
+        </ul>
+      </div>
+      <ul class="SuggestFlick">
+          <li>
+          <a class="nav-link" aria-disabled="true">SuggestFlick.com</a>
+      </li>
+        </li>
+      </ul> 
+    </div>
+  </nav>
+    <h1>Recommended Movies</h1>
+    <div class="movie_name">
+    <ul>
+      {% for _, movie_name in data %}
+        <li>{{ movie_name }}</li>
+      {% endfor %}
+  
+    </ul>
+  </div>
+    <div class="Poster">
+    <ul>
+      {% for poster in poster_url %}
+        <li> <img src="{{poster}}" alt="Movie Poster"></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="search-again">
+    <a href="/">Search more</a>
+  </div>
+
+</body>
+</html>
