@@ -45,7 +45,7 @@ def find_recommendations(user_movie, movie, similarity):
     movie['release_date'] = movie['release_date'].str[:4]
     recommended_movies = []
 
-    for i in range(5):
+    for i in range(6):
         m = movie[movie["title"] == all_movies[sorted_similar_score[i][0]]]['release_date'].values[0]
         recommended_movies.append((m, all_movies[sorted_similar_score[i][0]]))
 

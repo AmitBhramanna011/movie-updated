@@ -39,16 +39,23 @@
       }
       .movie_name li {
         display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     text-align: center;
-    width: 195px;
+   
+    flex-direction: column;
     margin: 19px 45px;
     font-weight: 600;
+    flex-wrap: wrap;
     letter-spacing: 2px;
+    width: 23rem;
       }
-      .Poster img{
+      .movie_name li h3 {
+       height: 4rem;
+      }
+      .movie_name img{
         border: 1px;
+        height: 25rem;
     border-radius: 20px;
       }
       .movie_name{
@@ -67,6 +74,10 @@
     background-color: white;
     padding: 6px 21px;
       }
+      .SuggestFlick{
+        color: black;
+        list-style: none;
+      }
 
     </style>
 </head>
@@ -74,7 +85,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#"><i class="bi bi-film"></i></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -92,14 +103,12 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">About us </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">More</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
+     
           
         </ul>
       </div>
@@ -113,20 +122,23 @@
   </nav>
     <h1>Recommended Movies</h1>
     <div class="movie_name">
-    <ul>
-      {% for _, movie_name in data %}
-        <li>{{ movie_name }}</li>
-      {% endfor %}
-  
-    </ul>
-  </div>
-    <div class="Poster">
+      <ul>
+        {% for index in range(data|length) %}
+          <li>
+            <h3>{{ data[index][1] }}</h3>
+            <img src="{{ poster_url[index] }}" alt="{{ data[index] }} Poster" />
+          </li>
+        {% endfor %}
+      </ul>
+    
+   </div>
+    <!-- <div class="Poster">
     <ul>
       {% for poster in poster_url %}
         <li> <img src="{{poster}}" alt="Movie Poster"></li>
       {% endfor %}
     </ul>
-  </div>
+  </div>  -->
 
   <div class="search-again">
     <a href="/">Search more</a>
